@@ -5,22 +5,52 @@ import API from "../api/axios";
 function ProductDetails() {
   const { id } = useParams();
 
-  const [product, setProduct] =
-    useState(null);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     fetchProduct();
   }, []);
 
   const fetchProduct = async () => {
-    const { data } =
-      await API.get(`/products/${id}`);
+    try {
+      const { data } = await API.get(
+        `/products/${id}`
+      );
 
-    setProduct(data);
+      setProduct(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  if (!product)
+  const addToCart = async () => {
+    try {
+      await API.post("/cart/add", {
+        productId: product._id,
+        quantity: 1,
+      });
+
+      alert("Added To Cart");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const addToWishlist = async () => {
+    try {
+      await API.post("/wishlist/add", {
+        productId: product._id,
+      });
+
+      alert("Added To Wishlist");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (!product) {
     return <h2>Loading...</h2>;
+  }
 
   return (
     <div>
@@ -35,6 +65,16 @@ function ProductDetails() {
       <p>{product.description}</p>
 
       <h3>₹{product.price}</h3>
+
+      <p>Stock: {product.stock}</p>
+
+      <button onClick={addToCart}>
+        Add To Cart
+      </button>
+
+      <button onClick={addToWishlist}>
+        Add To Wishlist
+      </button>
     </div>
   );
 }

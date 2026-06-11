@@ -2,39 +2,70 @@ import API from "../api/axios";
 
 function Checkout() {
 
-  const handlePayment = async () => {
+  const handlePayment =
+    async () => {
 
     try {
 
-      const { data } = await API.post(
-        "/payment/create-order",
-        {
-          amount: 1000,
-        }
-      );
+      const { data } =
+        await API.post(
+          "/payment/create-order",
+          {
+            amount: 1000,
+          }
+        );
 
       const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY,
+        key:
+          import.meta.env
+          .VITE_RAZORPAY_KEY,
 
-        amount: data.amount,
+        amount:
+          data.amount,
 
-        currency: data.currency,
+        currency:
+          data.currency,
 
-        order_id: data.id,
+        order_id:
+          data.id,
 
-        name: "ShopSphere",
+        name:
+          "ShopSphere",
 
-        description: "Order Payment",
+        description:
+          "Product Purchase",
 
-        handler: async function (response) {
+       handler: async function (response) {
+          try {
 
-          console.log(response);
+            await API.post(
+              "/orders",
+              {
+                products: cartItems.map(
+                  (item) => ({
+                    product:
+                      item.product._id,
 
-          alert(
-            "Payment Successful"
-          );
+                    quantity:
+                      item.quantity,
+                  })
+                ),
 
-        },
+                totalAmount: total,
+
+                paymentStatus:
+                  "Paid",
+              }
+            );
+
+            alert(
+              "Order Created Successfully"
+            );
+
+          } catch (error) {
+            console.log(error);
+          }
+        }
       };
 
       const razorpay =
@@ -57,7 +88,9 @@ function Checkout() {
       </h1>
 
       <button
-        onClick={handlePayment}
+        onClick={
+          handlePayment
+        }
       >
         Pay Now
       </button>
