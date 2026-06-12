@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
@@ -13,6 +14,7 @@ import Orders from './pages/Orders'
 import Checkout from "./pages/Checkout";
 import MainLayout from "./layouts/MainLayout";
 import ProductDetails from "./pages/ProductDetails";
+import Wishlist from './pages/Wishlist'
 
 function App() {
   return (
@@ -27,6 +29,11 @@ function App() {
                <Home />
             </MainLayout>
           }
+        />
+
+        <Route
+          path='/cart'
+          element={<Cart/>}
         />
 
         <Route
@@ -60,6 +67,11 @@ function App() {
         <Route
           path="/products/:id"
           element={<ProductDetails />}
+        />
+
+        <Route
+          path="/wishlist"
+          element={ <Wishlist />}
         />
 
       </Routes>

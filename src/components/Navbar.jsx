@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
 
 function Navbar() {
+
+  const dispatch = useDispatch();
+
   const token = useSelector(
     (state) => state.auth.token
   );
@@ -12,6 +16,7 @@ function Navbar() {
 
   return (
     <nav>
+
       <Link to="/">
         ShopSphere
       </Link>
@@ -35,10 +40,24 @@ function Navbar() {
           </Link>
         </>
       ) : (
-        <Link to="/orders">
-          Orders
-        </Link>
+        <>
+          <Link to="/orders">
+            Orders
+          </Link>
+          <Link to='/checkout'>
+            Pay Now 
+          </Link>
+
+          <button
+            onClick={() =>
+              dispatch(logout())
+            }
+          >
+            Logout
+          </button>
+        </>
       )}
+
     </nav>
   );
 }

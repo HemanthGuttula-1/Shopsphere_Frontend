@@ -17,8 +17,7 @@ function Checkout() {
 
       const options = {
         key:
-          import.meta.env
-          .VITE_RAZORPAY_KEY,
+          import.meta.env.VITE_RAZORPAY_KEY,
 
         amount:
           data.amount,
