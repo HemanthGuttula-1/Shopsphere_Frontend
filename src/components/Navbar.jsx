@@ -14,12 +14,23 @@ function Navbar() {
     (state) => state.cart.items
   );
 
+  const user = useSelector(
+    state => state.auth.user
+  )
   return (
     <nav>
 
       <Link to="/">
         ShopSphere
       </Link>
+
+      {
+        user?.role === "admin" && (
+          <Link to="/admin">
+            Admin
+          </Link>
+        )
+      }
 
       <Link to="/cart">
         Cart ({cartItems.length})

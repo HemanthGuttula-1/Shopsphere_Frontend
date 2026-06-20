@@ -1,17 +1,27 @@
 import API from "../api/axios";
+import { useSelector } from 'react-redux'
 
 function Checkout() {
-
+  const cartItems = useSelector(
+    (state) => state.cart.items
+  )
+  const total = cartItems.reduce(
+      (sum, item) =>
+        sum +
+        item.product.price *
+        item.quantity,
+      0
+  );
   const handlePayment =
     async () => {
-
+    
     try {
 
       const { data } =
         await API.post(
           "/payment/create-order",
           {
-            amount: 1000,
+            amount: total,
           }
         );
 
@@ -34,35 +44,43 @@ function Checkout() {
         description:
           "Product Purchase",
 
-       handler: async function (response) {
+        handler: async function (response) {
           try {
 
-            await API.post(
-              "/orders",
+            const verify = await API.post(
+              "/payment/verify",
               {
-                products: cartItems.map(
-                  (item) => ({
-                    product:
-                      item.product._id,
+                razorpay_order_id:
+                  response.razorpay_order_id,
 
-                    quantity:
-                      item.quantity,
-                  })
-                ),
+                razorpay_payment_id:
+                  response.razorpay_payment_id,
 
-                totalAmount: total,
-
-                paymentStatus:
-                  "Paid",
+                razorpay_signature:
+                  response.razorpay_signature,
               }
             );
 
-            alert(
-              "Order Created Successfully"
-            );
+            if (verify.data.success) {
+
+              await API.post(
+                "/orders",
+                {
+                  totalAmount: total,
+                  paymentStatus: "Paid",
+                }
+              );
+
+              alert(
+                "Order Created Successfully"
+              );
+
+            }
 
           } catch (error) {
+
             console.log(error);
+
           }
         }
       };

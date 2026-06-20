@@ -15,6 +15,8 @@ import Checkout from "./pages/Checkout";
 import MainLayout from "./layouts/MainLayout";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from './pages/Wishlist'
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminRoute from "./routes/AdminRoute";
 
 function App() {
   return (
@@ -73,7 +75,14 @@ function App() {
           path="/wishlist"
           element={ <Wishlist />}
         />
-
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
