@@ -5,9 +5,7 @@ import API from "../api/axios";
 
 function AdminDashboard() {
 
-  const [stats,
-    setStats] =
-      useState({});
+  const [ stats, setStats ] = useState({});
 
   const fetchStats =
     async () => {
