@@ -17,6 +17,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Wishlist from './pages/Wishlist'
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./routes/AdminRoute";
+import ManageProducts from "./pages/ManageProduct";
+import AdminOrders from "./pages/AdminOrders";
 
 function App() {
   return (
@@ -80,6 +82,23 @@ function App() {
           element={
             <AdminRoute>
               <AdminDashboard />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/orders"
+          element={
+            <AdminRoute>
+              <AdminOrders />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/products"
+          element={
+            <AdminRoute>
+              <ManageProducts />
             </AdminRoute>
           }
         />

@@ -26,10 +26,20 @@ function Navbar() {
 
       {
         user?.role === "admin" && (
-          <Link to="/admin">
-            Admin
-          </Link>
+            <>
+                <Link to="/admin">
+                  Admin
+                </Link>
+
+                <Link
+                  to="/admin/orders"
+                  className="bg-purple-600 text-white px-4 py-2 rounded"
+                >
+                  Manage Orders
+                </Link>
+            </>
         )
+
       }
 
       <Link to="/cart">
