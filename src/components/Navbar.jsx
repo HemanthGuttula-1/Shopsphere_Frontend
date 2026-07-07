@@ -6,17 +6,12 @@ function Navbar() {
 
   const dispatch = useDispatch();
 
-  const token = useSelector(
-    (state) => state.auth.token
-  );
+  const token = useSelector((state) => state.auth.token);
 
-  const cartItems = useSelector(
-    (state) => state.cart.items
-  );
+  const cartItems = useSelector((state) => state.cart.items);
+  console.log("Navbar cart:", cartItems);
+  const user = useSelector(state => state.auth.user)
 
-  const user = useSelector(
-    state => state.auth.user
-  )
   return (
     <nav>
 
