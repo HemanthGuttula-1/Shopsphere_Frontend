@@ -1,22 +1,14 @@
 import API from "../api/axios";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { setCart } from '../redux/cartSlice'
-import { setWishlist } from "../redux/wishlistSlice";
 
 function ProductCard({ product }) {
-  const dispatch  = useDispatch()
 
   const addToCart = async () => {
     try {
-      const { data } =  await API.post("/cart/add", {
-                          productId: product._id,
-                          quantity: 1,
+      await API.post("/cart/add", {
+        productId: product._id,
+        quantity: 1,
       });
-
-      console.log("Whole Response:", data);
-      dispatch(setCart(data.products))
-      console.log("after dispatch:", data.products);
 
       alert("Added to cart");
     } catch (error) {
@@ -26,12 +18,9 @@ function ProductCard({ product }) {
 
   const addToWishlist = async () => {
     try {
-      
-      const { data }  = await API.post("/wishlist/add", {
-                            productId: product._id,
-                        });
-
-      dispatch(setWishlist(data.products));
+      await API.post("/wishlist/add", {
+        productId: product._id,
+      });
 
       alert("Added to Wishlist");
     } catch (error) {
@@ -63,14 +52,14 @@ function ProductCard({ product }) {
       <div className="flex gap-2">
 
         <button
-          onClick={()=>addToCart(product)}
+          onClick={addToCart}
           className="border px-3 py-1 rounded"
         >
           Add To Cart
         </button>
 
         <button
-          onClick={()=>addToWishlist(product)}
+          onClick={addToWishlist}
           className="border px-3 py-1 rounded"
         >
           Wishlist

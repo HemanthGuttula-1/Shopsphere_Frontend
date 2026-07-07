@@ -4,13 +4,6 @@ import {
   Route,
 } from "react-router-dom";
 
-import API from './api/axios'
-
-import { useSelector,useDispatch } from "react-redux";
-import { setCart } from './redux/cartSlice'
-import { setWishlist } from './redux/wishlistSlice'
-import { useEffect } from 'react'
-
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
@@ -28,53 +21,6 @@ import ManageProducts from "./pages/ManageProduct";
 import AdminOrders from "./pages/AdminOrders";
 
 function App() {
-
-  const dispatch = useDispatch()
-
-  const token  = useSelector( state => state.auth.token )
-  const fetchCart = async () => {
-    try {
-
-      const { data } = await API.get("/cart");
-
-      dispatch(setCart(data?.products));
-
-    } catch (error) {
-
-      console.log(error);
-
-    }
-
-  };
-
-  const fetchWishlist = async () => {
-
-    try {
-
-      const { data } = await API.get("/wishlist");
-
-      dispatch(setWishlist(data?.products));
-
-    } catch (error) {
-
-      console.log(error);
-
-    }
-
-  };
-
-  useEffect(() => {
-
-    if (token) {
-      console.log(`Token:${token}`)
-      fetchCart();
-
-      fetchWishlist();
-
-    }
-
-  }, [token]);
-
   return (
     <BrowserRouter>
       <Navbar />
