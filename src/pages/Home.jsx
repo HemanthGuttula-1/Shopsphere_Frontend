@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import API from "../api/axios";
 import ProductCard from "../components/ProductCard";
+import Spinner from "../components/Spinner";
+import ProductSkeleton from "../components/ProductSkeleton";
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -22,9 +24,13 @@ function Home() {
 
   const [maxPrice, setMaxPrice] = useState("")
 
+  const [loading, setLoading] = useState(true)
+
   const fetchProducts = async () => {
    
     try {
+      
+      setLoading(true)
 
       const { data } =  await API.get(`/products`,{
         params:{
@@ -45,6 +51,8 @@ function Home() {
       console.log(data)
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -55,6 +63,30 @@ function Home() {
       clearTimeout(token);
     }
   }, [search, category, currentPage]);//whenever current page change re run the search 
+  
+  if (loading) {
+
+  return (
+
+      <div className="max-w-7xl mx-auto p-6">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {[...Array(8)].map((_, index) => (
+
+            <ProductSkeleton
+              key={index}
+            />
+
+          ))}
+
+        </div>
+
+      </div>
+
+    );
+
+  }
 
   return (
     <div className="max-w-7xl mx-auto p-6">
