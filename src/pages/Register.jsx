@@ -38,31 +38,96 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        name="name"
-        placeholder="Name"
-        onChange={handleChange}
-      />
+    <div className="min-h-[80vh] flex items-center justify-center bg-slate-100 px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
 
-      <input
-        name="email"
-        type="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
+        {/* Heading */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-cyan-600">
+            ShopSphere
+          </h1>
 
-      <input
-        name="password"
-        type="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
+          <p className="text-gray-500 mt-2">
+            Create your account and start shopping.
+          </p>
+        </div>
 
-      <button type="submit">
-        Register
-      </button>
-    </form>
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-5"
+        >
+
+          {/* Name */}
+          <div>
+            <label className="block mb-2 font-medium text-slate-700">
+              Name
+            </label>
+
+            <input
+              name="name"
+              type="text"
+              placeholder="Enter your name"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block mb-2 font-medium text-slate-700">
+              Email
+            </label>
+
+            <input
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              value={form.email}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            />
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="block mb-2 font-medium text-slate-700">
+              Password
+            </label>
+
+            <input
+              name="password"
+              type="password"
+              placeholder="Create a password"
+              value={form.password}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            />
+          </div>
+
+          {/* Register Button */}
+          <button
+            type="submit"
+            className="w-full bg-cyan-600 hover:bg-cyan-700 text-white py-3 rounded-lg font-semibold transition duration-300"
+          >
+            Register
+          </button>
+
+        </form>
+
+        {/* Login Link */}
+        <p className="text-center mt-6 text-gray-600">
+          Already have an account?{" "}
+          <span
+            onClick={() => navigate("/login")}
+            className="text-cyan-600 font-semibold cursor-pointer hover:underline"
+          >
+            Login
+          </span>
+        </p>
+
+      </div>
+    </div>
   );
 }
 
