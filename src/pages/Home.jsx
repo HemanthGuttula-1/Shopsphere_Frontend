@@ -56,13 +56,22 @@ function Home() {
     }
   };
 
-  useEffect(() => {
-    const token = setTimeout( () => fetchProducts(), 500);
+ useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchProducts();
+    }, 500);
 
-    return () =>{
-      clearTimeout(token);
-    }
-  }, [search, category, currentPage]);//whenever current page change re run the search 
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [
+    search,
+    category,
+    currentPage,
+    minPrice,
+    maxPrice,
+    sort,
+  ]);//whenever current page change re run the search 
   
   if (loading) {
 
@@ -180,6 +189,21 @@ function Home() {
       }}
       className="border border-gray-300 rounded-lg p-3 w-full"
   />
+
+  <select
+    value={sort}
+    onChange={(e) => {
+      setSort(e.target.value);
+      setCurrentPage(1);
+    }}
+    className="border border-gray-300 rounded-lg p-3 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+  >
+  <option value="newest">Newest</option>
+  <option value="priceAsc">Price: Low to High</option>
+  <option value="priceDesc">Price: High to Low</option>
+  <option value="nameAsc">Name (A-Z)</option>
+  <option value="nameDesc">Name (Z-A)</option>
+</select>
 
   </div>
       {/* Product Grid */}
