@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../api/axios";
+import ProductCard from "../components/ProductCard";
 
 function Wishlist() {
 
@@ -30,54 +31,53 @@ function Wishlist() {
   }, []);
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto p-6">
 
-      <h1>
-        My Wishlist
+    <div className="mb-8">
+      <h1 className="text-4xl font-bold text-slate-800">
+        ❤️ My Wishlist
       </h1>
 
-      {wishlist.length === 0 ? (
-        <h3>
-          Wishlist is Empty
-        </h3>
-      ) : (
-        wishlist.map(
-          (product) => (
-
-            <div
-              key={product._id}
-              className="
-                border
-                p-4
-                rounded
-                mb-3
-              "
-            >
-
-              <img
-                src={product.image}
-                alt={product.name}
-                width="150"
-              />
-
-              <h3>
-                {product.name}
-              </h3>
-
-              <p>
-                {product.description}
-              </p>
-
-              <p>
-                ₹{product.price}
-              </p>
-
-            </div>
-          )
-        )
-      )}
-
+      <p className="text-gray-500 mt-2">
+        {wishlist.length} Products Saved
+      </p>
     </div>
+
+    {wishlist.length === 0 ? (
+
+      <div className="bg-white rounded-2xl shadow-md p-10 text-center">
+
+        <div className="text-6xl mb-4">
+          ❤️
+        </div>
+
+        <h2 className="text-2xl font-semibold text-slate-700">
+          Your Wishlist is Empty
+        </h2>
+
+        <p className="text-gray-500 mt-3">
+          Save your favorite products and they will appear here.
+        </p>
+
+      </div>
+
+    ) : (
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        {wishlist.map((product) => (
+          <ProductCard
+            key={product._id}
+            product={product}
+            showWishlistButton={false}
+          />
+        ))}
+
+      </div>
+
+    )}
+
+  </div>
   );
 }
 

@@ -1,24 +1,26 @@
 import API from "../api/axios";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { setCart } from '../redux/cartSlice'
+import { useDispatch } from "react-redux";
+
+import { setCart } from "../redux/cartSlice";
 import { setWishlist } from "../redux/wishlistSlice";
 
-function ProductCard({ product }) {
-  const dispatch  = useDispatch()
+function ProductCard({
+  product,
+  showWishlistButton = true,
+}) {
+  const dispatch = useDispatch();
 
   const addToCart = async () => {
     try {
-      const { data } =  await API.post("/cart/add", {
-                          productId: product._id,
-                          quantity: 1,
+      const { data } = await API.post("/cart/add", {
+        productId: product._id,
+        quantity: 1,
       });
 
-      console.log("Whole Response:", data);
-      dispatch(setCart(data.products))
-      console.log("after dispatch:", data.products);
+      dispatch(setCart(data.products));
 
-      alert("Added to cart");
+      alert("Added to Cart");
     } catch (error) {
       console.log(error);
     }
@@ -26,10 +28,9 @@ function ProductCard({ product }) {
 
   const addToWishlist = async () => {
     try {
-      
-      const { data }  = await API.post("/wishlist/add", {
-                            productId: product._id,
-                        });
+      const { data } = await API.post("/wishlist/add", {
+        productId: product._id,
+      });
 
       dispatch(setWishlist(data.products));
 
@@ -40,41 +41,51 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="border p-4 rounded-lg shadow">
+    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
 
       <Link to={`/products/${product._id}`}>
 
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-48 object-cover"
-        />
+        <div className="overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-56 object-cover hover:scale-105 transition duration-300"
+          />
+        </div>
 
-        <h3 className="font-bold mt-2">
-          {product.name}
-        </h3>
+        <div className="p-4">
+
+          <h3 className="text-lg font-semibold text-slate-800 line-clamp-1">
+            {product.name}
+          </h3>
+
+          <p className="text-2xl font-bold text-cyan-600 mt-3">
+            ₹{product.price}
+          </p>
+
+        </div>
 
       </Link>
 
-      <p className="text-green-600 mb-3">
-        ₹{product.price}
-      </p>
-
-      <div className="flex gap-2">
+      <div className="px-4 pb-4 flex gap-3">
 
         <button
-          onClick={()=>addToCart(product)}
-          className="border px-3 py-1 rounded"
+          onClick={addToCart}
+          className="flex-1 bg-cyan-600 hover:bg-cyan-700 text-white py-2 rounded-lg transition duration-300"
         >
-          Add To Cart
+          Add to Cart
         </button>
 
-        <button
-          onClick={()=>addToWishlist(product)}
-          className="border px-3 py-1 rounded"
-        >
-          Wishlist
-        </button>
+        {showWishlistButton && (
+
+          <button
+            onClick={addToWishlist}
+            className="border border-cyan-500 text-cyan-600 hover:bg-cyan-500 hover:text-white px-4 rounded-lg transition duration-300"          
+          >
+            ❤️
+          </button>
+
+        )}
 
       </div>
 

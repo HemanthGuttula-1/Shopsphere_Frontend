@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import API from "../api/axios";
 import { setCart } from "../redux/cartSlice";
+import CartItem from "./CartItem";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -15,9 +16,8 @@ function Cart() {
     try {
       const { data } = await API.get("/cart");
 
-      dispatch(
-        setCart(data?.products || [])
-      );
+      dispatch(setCart(data?.products || []));
+
     } catch (error) {
       console.log(error);
     }
@@ -30,12 +30,13 @@ function Cart() {
     if (quantity < 1) return;
 
     try {
-      await API.put("/cart/update", {
+      const { data } = await API.put("/cart/update", {
         productId,
         quantity,
       });
 
-      fetchCart();
+      dispatch(setCart(data?.products))
+
     } catch (error) {
       console.log(error);
     }
@@ -58,16 +59,14 @@ function Cart() {
     ) => {
       try {
 
-        await API.delete(
+        const { data } = await API.delete(
           "/cart/remove",
           {
-            data: {
               productId,
-            },
           }
         );
 
-        fetchCart();
+        dispatch(setCart(data?.products))
 
       } catch (error) {
         console.log(error);
@@ -75,75 +74,66 @@ function Cart() {
   };
 
   return (
-    <div>
-      <h1>Cart</h1>
+    <div className="max-w-7xl mx-auto p-6">
+
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold text-slate-800">
+          Shopping Cart
+        </h1>
+
+        <p className="text-gray-500 mt-2">
+          {cartItems.length} Items
+        </p>
+      </div>
 
       {cartItems.length === 0 ? (
-        <h3>Cart is Empty</h3>
-      ) : (
-        cartItems.map((item) => (
-          <div
-            key={item.product._id}
-            className="border p-4 rounded mb-3"
-          >
-            <h3>
-              {item.product.name}
-            </h3>
 
-            <p>
-              Price: ₹
-              {item.product.price}
-            </p>
+        <div className="bg-white rounded-xl shadow-md p-12 text-center">
 
-            <div className="flex gap-3 items-center">
-              <button
-                onClick={() =>
-                  updateQuantity(
-                    item.product._id,
-                    item.quantity - 1
-                  )
-                }
-              >
-                -
-              </button>
-
-              <span>
-                {item.quantity}
-              </span>
-
-              <button
-                onClick={() =>
-                  updateQuantity(
-                    item.product._id,
-                    item.quantity + 1
-                  )
-                }
-              >
-                +
-              </button>
-            </div>
-            <button
-              onClick={() =>
-                removeItem(
-                  item.product._id
-                )
-              }
-            >
-              Remove
-            </button>
-
-            <p>
-              Subtotal: ₹
-              {item.product.price *
-                item.quantity}
-            </p>
+          <div className="text-6xl">
+            🛒
           </div>
-        ))
+
+          <h2 className="text-2xl font-semibold mt-4">
+            Your Cart is Empty
+          </h2>
+
+          <p className="text-gray-500 mt-2">
+            Add some amazing products to your cart.
+          </p>
+
+        </div>
+
+      ) : (
+
+        <>
+          <div className="space-y-5">
+
+            {cartItems.map((item,_) => (
+              <CartItem
+                key={item.product._id}
+                item={item}
+              />
+            ))}
+
+          </div>
+
+          <div className="mt-8 bg-white rounded-xl shadow-md p-6 flex justify-between items-center">
+
+            <h2 className="text-2xl font-bold">
+              Total
+            </h2>
+
+            <h2 className="text-3xl font-bold text-cyan-600">
+              ₹{total}
+            </h2>
+
+          </div>
+
+        </>
+
       )}
 
-      <h2>
-        Total: ₹{total}
-      </h2>
     </div>
   );
 }
