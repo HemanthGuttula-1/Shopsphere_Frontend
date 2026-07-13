@@ -35,7 +35,7 @@ function Cart() {
         quantity,
       });
 
-      dispatch(setCart(data?.products))
+      dispatch(setCart(data?.products || []))
 
     } catch (error) {
       console.log(error);
@@ -52,7 +52,7 @@ function Cart() {
       item.product.price *
         item.quantity,
     0
-  );
+  ) || [];
 
   const removeItem = async (
       productId
@@ -66,7 +66,7 @@ function Cart() {
           }
         );
 
-        dispatch(setCart(data?.products))
+        dispatch(setCart(data?.products || []))
 
       } catch (error) {
         console.log(error);
@@ -82,11 +82,11 @@ function Cart() {
         </h1>
 
         <p className="text-gray-500 mt-2">
-          {cartItems.length} Items
+          {cartItems?.length} Items
         </p>
       </div>
 
-      {cartItems.length === 0 ? (
+      {cartItems?.length === 0 ? (
 
         <div className="bg-white rounded-xl shadow-md p-12 text-center">
 

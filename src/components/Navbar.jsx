@@ -9,7 +9,9 @@ function Navbar() {
   const token = useSelector((state) => state.auth.token);
 
   const cartItems = useSelector((state) => state.cart.items);
+  
   console.log("Navbar cart:", cartItems);
+
   const user = useSelector(state => state.auth.user)
 
   return (
@@ -50,7 +52,7 @@ function Navbar() {
             to="/cart"
             className="hover:text-cyan-400 transition"
           >
-            🛒 Cart ({cartItems.length})
+            🛒 Cart ({cartItems?.length})
           </Link>
 
           <Link

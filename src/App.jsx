@@ -37,7 +37,7 @@ function App() {
 
       const { data } = await API.get("/cart");
 
-      dispatch(setCart(data?.products));
+      dispatch(setCart(data?.products || []));
 
     } catch (error) {
 
@@ -53,7 +53,7 @@ function App() {
 
       const { data } = await API.get("/wishlist");
 
-      dispatch(setWishlist(data?.products));
+      dispatch(setWishlist(data?.products) || []);
 
     } catch (error) {
 
