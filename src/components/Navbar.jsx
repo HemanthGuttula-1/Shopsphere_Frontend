@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
+import { clearCart } from '../redux/cartSlice'
+import { clearWishlist } from "../redux/wishlistSlice";
 
 function Navbar() {
 
@@ -95,7 +97,12 @@ function Navbar() {
               </Link>
 
               <button
-                onClick={() => dispatch(logout())}
+                onClick={() => {
+                  dispatch(clearCart())
+                  dispatch(clearWishlist())
+                  return dispatch(logout())
+                }}
+
                 className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg transition"
               >
                 Logout

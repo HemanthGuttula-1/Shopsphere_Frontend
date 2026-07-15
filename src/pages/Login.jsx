@@ -30,6 +30,8 @@ function Login() {
         form
       );
 
+      console.log("Login Data:",data)
+
       dispatch(loginSuccess(data));
 
       navigate("/");
