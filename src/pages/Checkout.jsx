@@ -17,32 +17,25 @@ function Checkout() {
     
     try {
 
-      const { data } =
-        await API.post(
-          "/payment/create-order",
+      const { data } = await API.post("/payment/create-order",
           {
             amount: total,
           }
         );
+        
 
       const options = {
-        key:
-          import.meta.env.VITE_RAZORPAY_KEY,
+        key: import.meta.env.VITE_RAZORPAY_KEY,
 
-        amount:
-          data.amount,
+        amount: data.amount,
 
-        currency:
-          data.currency,
+        currency: data.currency,
 
-        order_id:
-          data.id,
+        order_id: data.id,
 
-        name:
-          "ShopSphere",
+        name: "ShopSphere",
 
-        description:
-          "Product Purchase",
+        description: "Product Purchase",
 
         handler: async function (response) {
           try {
@@ -85,10 +78,7 @@ function Checkout() {
         }
       };
 
-      const razorpay =
-        new window.Razorpay(
-          options
-        );
+      const razorpay = new window.Razorpay(  options  );
 
       razorpay.open();
 

@@ -26,6 +26,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./routes/AdminRoute";
 import ManageProducts from "./pages/ManageProduct";
 import AdminOrders from "./pages/AdminOrders";
+import AddProduct from "./pages/Admin/AddProduct"
 
 function App() {
 
@@ -153,6 +154,15 @@ function App() {
           element={
             <AdminRoute>
               <ManageProducts />
+            </AdminRoute>
+          }
+        />
+
+        <Route 
+          path="/admin/add-product"
+          element={
+            <AdminRoute>
+              <AddProduct/>
             </AdminRoute>
           }
         />
