@@ -1,18 +1,29 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import API from "../api/axios";
+import API from "../../api/axios";
 
 function ManageProducts() {
 
   const [products, setProducts] = useState([]);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+
   const fetchProducts = async () => {
     try {
 
-      const { data } = await API.get("/products");
+      const limit = 8;
 
-      setProducts(data);
+      const { data } = await API.get("/products",{
+        params:{
+          limit: limit,
+          page: currentPage,
+        }
+      });
 
+      console.log("fetch :",data)
+      setProducts(data.products);
+      setTotalPages(data.totalPages)
     } catch (error) {
 
       console.log(error);
@@ -47,7 +58,7 @@ function ManageProducts() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [currentPage]);
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -123,6 +134,37 @@ function ManageProducts() {
           </div>
 
         ))}
+
+      </div>
+
+      {/* Pagination Info */}
+      <div className="flex justify-between items-center mt-10 border-t pt-5">
+
+        <button
+            disabled={currentPage === 1}
+            onClick={() =>
+                setCurrentPage(currentPage - 1)
+            }
+            className="bg-slate-700 text-white px-4 py-2 rounded disabled:opacity-50"
+        >
+            Previous
+        </button>
+
+        <p className="font-semibold">
+            Page {currentPage} of {totalPages}
+        </p>
+
+        <button
+            disabled={
+                currentPage === totalPages
+            }
+            onClick={() =>
+                setCurrentPage(currentPage + 1)
+            }
+            className="bg-slate-700 text-white px-4 py-2 rounded disabled:opacity-50"
+        >
+            Next
+        </button>
 
       </div>
 

@@ -9,6 +9,7 @@ import API from './api/axios'
 import { useSelector,useDispatch } from "react-redux";
 import { setCart } from './redux/cartSlice'
 import { setWishlist } from './redux/wishlistSlice'
+import { setUser, logout } from './redux/authSlice'
 import { useEffect } from 'react'
 
 import Home from "./pages/Home";
@@ -22,11 +23,12 @@ import Checkout from "./pages/Checkout";
 import MainLayout from "./layouts/MainLayout";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from './pages/Wishlist'
-import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminRoute from "./routes/AdminRoute";
-import ManageProducts from "./pages/ManageProduct";
-import AdminOrders from "./pages/AdminOrders";
+import ManageProducts from "./pages/Admin/ManageProduct";
+import AdminOrders from "./pages/Admin/AdminOrders";
 import AddProduct from "./pages/Admin/AddProduct"
+import EditProduct from "./pages/Admin/EditProduct";
 
 function App() {
 
@@ -54,7 +56,7 @@ function App() {
 
       const { data } = await API.get("/wishlist");
 
-      dispatch(setWishlist(data?.products) || []);
+      dispatch(setWishlist(data?.products || []));
 
     } catch (error) {
 
@@ -64,13 +66,31 @@ function App() {
 
   };
 
+  const fetchUser = async ()=>{
+    try{
+
+      const { data } = await API.get("/auth/profile")
+      console.log("profile:", data )
+      dispatch(setUser(data))
+
+    }catch(error){
+
+      console.log(error)
+
+      dispatch(logout())
+    }
+  }
+
   useEffect(() => {
 
     if (token) {
       console.log(`Token:${token}`)
+
       fetchCart();
 
       fetchWishlist();
+
+      fetchUser();
 
     }
 
@@ -163,6 +183,15 @@ function App() {
           element={
             <AdminRoute>
               <AddProduct/>
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/edit-product/:id"
+          element={
+            <AdminRoute>
+              <EditProduct/>
             </AdminRoute>
           }
         />
