@@ -5,6 +5,8 @@ import API from "../api/axios";
 import { setCart } from "../redux/cartSlice";
 import CartItem from "./CartItem";
 
+import { toast } from 'react-toastify'
+
 function Cart() {
   const dispatch = useDispatch();
 
@@ -65,7 +67,9 @@ function Cart() {
               productId,
           }
         );
-
+        
+        toast.success("Deleted product from Cart")
+        
         dispatch(setCart(data?.products || []))
 
       } catch (error) {

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
 import { clearCart } from '../redux/cartSlice'
 import { clearWishlist } from "../redux/wishlistSlice";
-
+import { toast } from 'react-toastify'
 function Navbar() {
 
   const dispatch = useDispatch();
@@ -100,6 +100,7 @@ function Navbar() {
                 onClick={() => {
                   dispatch(clearCart())
                   dispatch(clearWishlist())
+                  toast.success("Logout !")
                   return dispatch(logout())
                 }}
 

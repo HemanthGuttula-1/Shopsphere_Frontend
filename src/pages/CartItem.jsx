@@ -2,7 +2,7 @@ import API from "../api/axios";
 import { useDispatch } from "react-redux";
 
 import { setCart } from "../redux/cartSlice";
-
+import { toast } from 'react-toastify'
 function CartItem({
   item,
   fetchCart,
@@ -18,6 +18,7 @@ function CartItem({
         quantity,
       });
 
+      toast.success("Quantity Updated")
       dispatch(setCart(data.products));
     } catch (error) {
       console.log(error);
@@ -32,6 +33,7 @@ function CartItem({
         },
       });
 
+      toast.success("Deleted from Cart")
       dispatch(setCart(data.products));
     } catch (error) {
       console.log(error);

@@ -31,7 +31,7 @@ function Home() {
     try {
       
       setLoading(true)
-
+      
       const { data } =  await API.get(`/products`,{
         params:{
           search:search,

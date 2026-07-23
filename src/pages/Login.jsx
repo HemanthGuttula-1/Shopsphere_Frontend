@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import API from "../api/axios";
 import { loginSuccess } from "../redux/authSlice";
-
+import { toast } from 'react-toastify'
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,12 +31,13 @@ function Login() {
       );
 
       console.log("Login Data:",data)
+      toast.success("Login Success")
       dispatch(loginSuccess(data));
 
       navigate("/");
     } catch (error) {
       console.log(error);
-      alert("Login Failed");
+      toast.error("Login Failed");
     }
   };
 

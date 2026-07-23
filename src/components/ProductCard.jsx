@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { setCart } from "../redux/cartSlice";
 import { setWishlist } from "../redux/wishlistSlice";
+import { toast } from 'react-toastify'
 
 function ProductCard({
   product,
@@ -19,9 +20,9 @@ function ProductCard({
       });
 
       dispatch(setCart(data.products));
-
-      alert("Added to Cart");
+      toast.success("Added to Cart");
     } catch (error) {
+      toast.error("Add to Cart Failed")
       console.log(error);
     }
   };

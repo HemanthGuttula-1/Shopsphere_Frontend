@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../../api/axios";
-
+import { toast } from 'react-toastify'
 function AdminOrders() {
   const [orders, setOrders] = useState([]);
 
@@ -18,7 +18,7 @@ function AdminOrders() {
       await API.put(`/orders/${id}/status`, {
         orderStatus: status,
       });
-
+      toast.success(`${status} updated`)
       fetchOrders();
 
     } catch (error) {

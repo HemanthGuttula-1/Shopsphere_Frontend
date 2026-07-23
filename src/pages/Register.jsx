@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import API from "../api/axios";
 
+import { toast } from 'react-toastify'
+
 function Register() {
   const navigate = useNavigate();
 
@@ -28,12 +30,12 @@ function Register() {
         form
       );
 
-      alert("Registration Successful");
+      toast.success("Registration Successful");
 
       navigate("/login");
     } catch (error) {
       console.log(error);
-      alert("Registration Failed");
+      toast.error("Registration Failed");
     }
   };
 

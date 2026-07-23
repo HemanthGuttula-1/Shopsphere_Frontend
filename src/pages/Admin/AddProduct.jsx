@@ -1,6 +1,8 @@
 import { useState } from "react";
 import API from "../../api/axios";
 
+import { toast } from 'react-toastify'
+
 const categories = [
   "Mobile",
   "Laptop",
@@ -41,7 +43,7 @@ const AddProduct = () => {
 
       const res = await API.post("/admin/products", data);
 
-      alert(res.data.message);
+      toast.success(res.data?.message);
 
       setForm({
         name: "",
@@ -55,7 +57,7 @@ const AddProduct = () => {
       setImage(null);
     } catch (error) {
       console.error(error);
-      alert(error.response?.data?.message || "Error");
+      toast.error(error.response?.data?.message || "Error");
     }
   };
 

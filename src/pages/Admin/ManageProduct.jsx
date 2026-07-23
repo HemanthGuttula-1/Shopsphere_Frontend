@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../../api/axios";
-
+import { toast } from 'react-toastify'
 function ManageProducts() {
 
   const [products, setProducts] = useState([]);
@@ -43,7 +43,7 @@ function ManageProducts() {
 
       await API.delete(`/products/${id}`);
 
-      alert("Product Deleted Successfully");
+      toast.success("Product Deleted Successfully");
 
       fetchProducts();
 
@@ -51,7 +51,7 @@ function ManageProducts() {
 
       console.log(error);
 
-      alert("Failed to delete product");
+      toast.error("Failed to delete product");
 
     }
   };

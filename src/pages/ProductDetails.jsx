@@ -5,6 +5,8 @@ import ProductCard from "../components/ProductCard";
 import API from "../api/axios";
 import { setCart } from "../redux/cartSlice";
 
+import { toast } from 'react-toastify'
+
 function ProductDetails() {
 
   const { id } = useParams();
@@ -25,7 +27,7 @@ function ProductDetails() {
 
       dispatch(setCart(data.products));
 
-      alert("Added To Cart");
+      toast.success("Added To Cart");
 
     } catch (error) {
 

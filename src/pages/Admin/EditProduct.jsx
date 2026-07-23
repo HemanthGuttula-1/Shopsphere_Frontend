@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import API from "../../api/axios";
-
+import { toast } from 'react-toastify'
 const categories = [
   "Mobile",
   "Laptop",
@@ -47,7 +47,7 @@ const EditProduct = () => {
 
     } catch (error) {
       console.log(error);
-      alert("Failed to load product");
+      toast.error("Failed to load product");
     }
   };
 
@@ -83,13 +83,13 @@ const EditProduct = () => {
 
       await API.put(`/admin/products/${id}`, data);
 
-      alert("Product Updated Successfully");
+      toast.success("Product Updated Successfully");
 
       navigate("/admin/products");
 
     } catch (error) {
       console.log(error);
-      alert(error.response?.data?.message || "Update Failed");
+      toast.error(error.response?.data?.message || "Update Failed");
     }
   };
 
