@@ -68,8 +68,103 @@ ShopSphere_Frontend/
   <img src="screenshots/manageOrder.png" width="700">
 </p>
 
-##Installation
+## 📋 Prerequisites
 
+Before running this project, ensure you have:
+
+- Node.js (v18 or later)
+- npm
+- MongoDB Atlas account
+- Cloudinary account
+- Razorpay account (for payments)
+- Git
+
+## 🛠️ Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/ShopSphere.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd ShopSphere
+```
+
+### 3. Install Frontend Dependencies
+
+```bash
+cd Shopsphere_Frontend
+npm install
+```
+
+### 4. Start the Frontend
+
+```bash
+npm run dev
+```
+
+The frontend will be available at:
+
+```
+http://localhost:5173
+```
+
+### 5. Install Backend Dependencies
+
+Open a new terminal and run:
+
+```bash
+cd ShopSphere/Shopsphere_Backend
+npm install
+```
+
+### 6. Configure Environment Variables
+
+Create a `.env` file inside the `Shopsphere_Backend` folder and add:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+RAZORPAY_KEY_ID=your_razorpay_key
+RAZORPAY_KEY_SECRET=your_razorpay_secret
+```
+
+### 7. Start the Backend Server
+
+```bash
+npm start
+```
+
+or, if you use Nodemon:
+
+```bash
+npm run dev
+```
+
+The backend server will run at:
+
+```
+http://localhost:5000
+```
+
+### 8. Open the Application
+
+Open your browser and visit:
+
+```
+http://localhost:5173
+```
+
+The frontend will communicate with the backend running on port `5000`.
 
 
 ##API End points
@@ -102,13 +197,16 @@ RAZORPAY_KEY=
 
 RAZORPAY_SECRET=
 
-#Frontend
+### Frontend Environment Variables
 
+Create a `.env` file inside `Shopsphere_Frontend`:
+
+```env
+VITE_BASE_URL=http://localhost:5000/api
 VITE_RAZORPAY_KEY=
+```
 
-VITE_BASE_URL=```text http://localhost:5000/api```
-
-##Simple Archiotechture
+##Simple Architecture
 ```text
 React Frontend
       │
@@ -132,3 +230,6 @@ Secure password hashing with bcrypt
 JWT-based authentication
 Image storage using Cloudinary
 ```
+
+Author
+---Hemanth Guttula
