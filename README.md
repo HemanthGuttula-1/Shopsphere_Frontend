@@ -84,7 +84,7 @@ Before running this project, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/ShopSphere.git
+git clone https://github.com/HemanthGuttula-1/Shopsphere_Frontend.git
 ```
 
 ### 2. Navigate to the Project Directory
@@ -117,7 +117,7 @@ http://localhost:5173
 Open a new terminal and run:
 
 ```bash
-cd ShopSphere/Shopsphere_Backend
+cd Shopsphere_Backend
 npm install
 ```
 
