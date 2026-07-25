@@ -35,7 +35,7 @@ function ProductCard({
 
       dispatch(setWishlist(data.products));
 
-      alert("Added to Wishlist");
+      toast.success("Added to Wishlist");
     } catch (error) {
       console.log(error);
     }

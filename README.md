@@ -16,27 +16,18 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
   <img src="screenshots/product.png" width="700">
 </p>
 
-
+###Cart
 <p align="center">
   <img src="screenshots/cart.png" width="700">
 </p>
 
+###Wishlist
+<p align="center">
+  <img src="screenshots/wishlist.png" width="700">
+</p>
 
-ShopSphere/
-│
-├── client/
-├── server/
-├── screenshots/
-│   ├── banner.png
-│   ├── home.png
-│   ├── login.png
-│   ├── product-details.png
-│   ├── cart.png
-│   ├── wishlist.png
-│   ├── checkout.png
-│   ├── orders.png
-│   ├── admin-dashboard.png
-│   ├── add-product.png
-│   └── manage-orders.png
-│
-├── README.md
+###orders
+<p align="center">
+  <img src="screenshots/order.png" width="700">
+</p>
+
