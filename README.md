@@ -1,7 +1,7 @@
-#Shopsphere
+# Shopsphere
 A full-stack MERN E-Commerce platform with authentication, product management, cart, wishlist, Razorpay integration, and an admin dashboard.
 
-##Project Structure
+## Project Structure
 ```text
 ShopSphere_Frontend/
 │
@@ -197,7 +197,7 @@ RAZORPAY_KEY=
 
 RAZORPAY_SECRET=
 
-## Frontend Environment Variables
+## Frontend
 
 Create a `.env` file inside `Shopsphere_Frontend`:
 
@@ -230,6 +230,16 @@ Secure password hashing with bcrypt
 JWT-based authentication
 Image storage using Cloudinary
 ```
+
+## What I Learned
+
+- Building scalable REST APIs
+- JWT Authentication
+- Redux State Management
+- Cloudinary Integration
+- Multer File Upload
+- Payment Gateway Integration
+- MongoDB Aggregation
 
 # Author
 ---Hemanth Guttula
