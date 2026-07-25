@@ -28,42 +28,42 @@ ShopSphere_Frontend/
   <img src="screenshots/HOME.png" width="700">
 </p>
 
-###Product
+### Product
 <p align="center">
   <img src="screenshots/product.png" width="700">
 </p>
 
-###Cart
+### Cart
 <p align="center">
   <img src="screenshots/cart.png" width="700">
 </p>
 
-###Wishlist
+### Wishlist
 <p align="center">
   <img src="screenshots/wishlist.png" width="700">
 </p>
 
-###orders
+### Orders
 <p align="center">
   <img src="screenshots/order.png" width="700">
 </p>
 
-###Admin Dash board
+### Admin Dash board
 <p align="center">
   <img src="screenshots/admin.png" width="700">
 </p>
 
-###Add product
+### Add product
 <p align="center">
   <img src="screenshots/addProduct.png" width="700">
 </p>
 
-###Product update&delete
+### Product update&delete
 <p align="center">
   <img src="screenshots/editProduct.png" width="700">
 </p>
 
-###Manage Orders
+### Manage Orders
 <p align="center">
   <img src="screenshots/manageOrder.png" width="700">
 </p>
@@ -167,7 +167,7 @@ http://localhost:5173
 The frontend will communicate with the backend running on port `5000`.
 
 
-##API End points
+## API End points
 
 | Method | Endpoint       | Description  |
 | ------ | -------------- | ------------ |
@@ -177,9 +177,9 @@ The frontend will communicate with the backend running on port `5000`.
 | POST   | /cart/add      | Add Cart     |
 | PUT    | /cart/update   | Update Cart  |
 
-###Environment Variables
+### Environment Variables
  
-#Backend
+# Backend
 
 PORT=
 
@@ -206,7 +206,7 @@ VITE_BASE_URL=http://localhost:5000/api
 VITE_RAZORPAY_KEY=
 ```
 
-##Simple Architecture
+## Simple Architecture
 ```text
 React Frontend
       │
@@ -221,7 +221,7 @@ MongoDB Atlas
 Cloudinary
 ```
 
-##Performance Highlights
+## Performance Highlights
 ```text
 Responsive UI across desktop and mobile
 Lazy loading where implemented
@@ -231,5 +231,5 @@ JWT-based authentication
 Image storage using Cloudinary
 ```
 
-Author
+# Author
 ---Hemanth Guttula
