@@ -18,7 +18,7 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 
 
 <p align="center">
-  <img src="screenshots/cart.png" width="300">
+  <img src="screenshots/cart.png" width="700">
 </p>
 
 
