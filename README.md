@@ -8,8 +8,8 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 
 ###Home page
 <p align="center">
-  <img src="screenshots/home.png" width="300">
-  <img src="screenshots/product.png" width="300">
+  <img src="screenshots/home.png" width="700">
+  <img src="screenshots/product.png" width="700">
 </p>
 
 <p align="center">
