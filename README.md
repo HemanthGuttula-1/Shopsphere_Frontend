@@ -197,7 +197,7 @@ RAZORPAY_KEY=
 
 RAZORPAY_SECRET=
 
-# Frontend Environment Variables
+## Frontend Environment Variables
 
 Create a `.env` file inside `Shopsphere_Frontend`:
 
@@ -221,7 +221,7 @@ MongoDB Atlas
 Cloudinary
 ```
 
-# Performance Highlights
+## Performance Highlights
 ```text
 Responsive UI across desktop and mobile
 Lazy loading where implemented
