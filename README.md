@@ -34,10 +34,19 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 ###Admin Dash board
 <p align="center">
   <img src="screenshots/admin.png" width="700">
+</p>
+
+###Add product
+<p align="center">
   <img src="screenshots/addProduct.png" width="700">
 </p>
 
 ###Product update&delete
 <p align="center">
   <img src="screenshots/editProduct.png" width="700">
+</p>
+
+###Manage Orders
+<p align="center">
+  <img src="screenshots/manageorder.png" width="700">
 </p>
