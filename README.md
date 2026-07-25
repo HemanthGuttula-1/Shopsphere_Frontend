@@ -5,67 +5,17 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 
 ShopSphere_Frontend/
 │
-├── public/
-│
 ├── screenshots/
-│   ├── banner.png
-│   ├── home.png
-│   ├── product.png
-│   ├── cart.png
-│   ├── wishlist.png
-│   ├── order.png
-│   ├── admin.png
-│   ├── addProduct.png
-│   ├── editProduct.png
-│   └── manageOrder.png
-│
 ├── src/
 │   ├── api/
-│   │   └── axios.jsx
-│   │
 │   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── ProductCard.jsx
-│   │   ├── ProductSkeleton.jsx
-│   │   ├── ProtectedRoute.jsx
-│   │   └── Spinner.jsx
-│   │
 │   ├── layouts/
-│   │   └── MainLayout.jsx
-│   │
 │   ├── pages/
-│   │   ├── Admin/
-│   │   │   ├── AddProduct.jsx
-│   │   │   ├── AdminDashboard.jsx
-│   │   │   ├── AdminOrders.jsx
-│   │   │   ├── EditProduct.jsx
-│   │   │   └── ManageProduct.jsx
-│   │   │
-│   │   ├── Cart.jsx
-│   │   ├── Checkout.jsx
-│   │   ├── Home.jsx
-│   │   ├── Login.jsx
-│   │   ├── Orders.jsx
-│   │   ├── ProductDetails.jsx
-│   │   ├── Register.jsx
-│   │   └── Wishlist.jsx
-│   │
 │   ├── redux/
-│   │   ├── authSlice.jsx
-│   │   ├── cartSlice.jsx
-│   │   ├── wishlistSlice.jsx
-│   │   └── store.jsx
-│   │
 │   ├── routes/
-│   │   └── AdminRoute.jsx
-│   │
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
-│
-├── package.json
-├── README.md
-└── vite.config.js
 
 ###Banner
 <p align="center">
@@ -121,7 +71,7 @@ ShopSphere_Frontend/
 
 
 
-###API End points
+##API End points
 
 | Method | Endpoint       | Description  |
 | ------ | -------------- | ------------ |
@@ -133,7 +83,7 @@ ShopSphere_Frontend/
 
 ###Environment Variables
  
-Backend->
+#Backend
 
 PORT=
 
@@ -151,9 +101,9 @@ RAZORPAY_KEY=
 
 RAZORPAY_SECRET=
 
-Frontend->
+#Frontend
 
 VITE_RAZORPAY_KEY=
 
-VITE_BASE_URL=[for mongoDB server](http://localhost:5000/api)
+VITE_BASE_URL=http://localhost:5000/api
 
