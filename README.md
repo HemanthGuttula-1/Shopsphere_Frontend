@@ -18,12 +18,12 @@ ShopSphere_Frontend/
 │   └── index.css
 ```
 
-###Banner
+### Banner
 <p align="center">
     <img src="screenshots/banner.png" width="300" alt="Home Page">
 </p>
 
-###Home page
+### Home page
 <p align="center">
   <img src="screenshots/HOME.png" width="700">
 </p>
