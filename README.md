@@ -106,5 +106,5 @@ RAZORPAY_SECRET=
 
 VITE_RAZORPAY_KEY=
 
-VITE_BASE_URL=http://localhost:5000/api
+VITE_BASE_URL=```text http://localhost:5000/api```
 
