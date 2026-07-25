@@ -85,6 +85,7 @@ Before running this project, ensure you have:
 
 ```bash
 git clone https://github.com/HemanthGuttula-1/Shopsphere_Frontend.git
+git clone https://github.com/HemanthGuttula-1/Shopsphere_Backend.git
 ```
 
 ### 2. Navigate to the Project Directory
