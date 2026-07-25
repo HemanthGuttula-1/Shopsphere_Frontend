@@ -1,6 +1,72 @@
 #Shopsphere
 A full-stack MERN E-Commerce platform with authentication, product management, cart, wishlist, Razorpay integration, and an admin dashboard.
 
+###Project Structure
+
+ShopSphere_Frontend/
+│
+├── public/
+│
+├── screenshots/
+│   ├── banner.png
+│   ├── home.png
+│   ├── product.png
+│   ├── cart.png
+│   ├── wishlist.png
+│   ├── order.png
+│   ├── admin.png
+│   ├── addProduct.png
+│   ├── editProduct.png
+│   └── manageOrder.png
+│
+├── src/
+│   ├── api/
+│   │   └── axios.jsx
+│   │
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── ProductCard.jsx
+│   │   ├── ProductSkeleton.jsx
+│   │   ├── ProtectedRoute.jsx
+│   │   └── Spinner.jsx
+│   │
+│   ├── layouts/
+│   │   └── MainLayout.jsx
+│   │
+│   ├── pages/
+│   │   ├── Admin/
+│   │   │   ├── AddProduct.jsx
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   ├── AdminOrders.jsx
+│   │   │   ├── EditProduct.jsx
+│   │   │   └── ManageProduct.jsx
+│   │   │
+│   │   ├── Cart.jsx
+│   │   ├── Checkout.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Orders.jsx
+│   │   ├── ProductDetails.jsx
+│   │   ├── Register.jsx
+│   │   └── Wishlist.jsx
+│   │
+│   ├── redux/
+│   │   ├── authSlice.jsx
+│   │   ├── cartSlice.jsx
+│   │   ├── wishlistSlice.jsx
+│   │   └── store.jsx
+│   │
+│   ├── routes/
+│   │   └── AdminRoute.jsx
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── package.json
+├── README.md
+└── vite.config.js
+
 ###Banner
 <p align="center">
     <img src="screenshots/banner.png" width="300" alt="Home Page">
@@ -50,3 +116,44 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 <p align="center">
   <img src="screenshots/manageOrder.png" width="700">
 </p>
+
+##Installation
+
+
+
+###API End points
+
+| Method | Endpoint       | Description  |
+| ------ | -------------- | ------------ |
+| POST   | /auth/login    | Login        |
+| POST   | /auth/register | Register     |
+| GET    | /products      | Get Products |
+| POST   | /cart/add      | Add Cart     |
+| PUT    | /cart/update   | Update Cart  |
+
+###Environment Variables
+ 
+Backend->
+
+PORT=
+
+MONGO_URI=
+
+JWT_SECRET=
+
+CLOUDINARY_NAME=
+
+CLOUDINARY_KEY=
+
+CLOUDINARY_SECRET=
+
+RAZORPAY_KEY=
+
+RAZORPAY_SECRET=
+
+Frontend->
+
+VITE_RAZORPAY_KEY=
+
+VITE_BASE_URL=[for mongoDB server](http://localhost:5000/api)
+
