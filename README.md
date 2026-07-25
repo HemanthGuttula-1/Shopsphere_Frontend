@@ -177,9 +177,9 @@ The frontend will communicate with the backend running on port `5000`.
 | POST   | /cart/add      | Add Cart     |
 | PUT    | /cart/update   | Update Cart  |
 
-### Environment Variables
+# Environment Variables
  
-# Backend
+## Backend
 
 PORT=
 
@@ -197,7 +197,7 @@ RAZORPAY_KEY=
 
 RAZORPAY_SECRET=
 
-### Frontend Environment Variables
+# Frontend Environment Variables
 
 Create a `.env` file inside `Shopsphere_Frontend`:
 
@@ -221,7 +221,7 @@ MongoDB Atlas
 Cloudinary
 ```
 
-## Performance Highlights
+# Performance Highlights
 ```text
 Responsive UI across desktop and mobile
 Lazy loading where implemented
