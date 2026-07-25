@@ -48,5 +48,5 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 
 ###Manage Orders
 <p align="center">
-  <img src="screenshots/manageorder.png" width="700">
+  <img src="screenshots/manageOrder.png" width="700">
 </p>
