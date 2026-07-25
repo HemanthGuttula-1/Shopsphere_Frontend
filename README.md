@@ -108,3 +108,27 @@ VITE_RAZORPAY_KEY=
 
 VITE_BASE_URL=```text http://localhost:5000/api```
 
+##Simple Archiotechture
+```text
+React Frontend
+      │
+ REST API
+      │
+Express Server
+      │
+Business Logic
+      │
+MongoDB Atlas
+      │
+Cloudinary
+```
+
+##Performance Highlights
+```text
+Responsive UI across desktop and mobile
+Lazy loading where implemented
+Optimized API calls
+Secure password hashing with bcrypt
+JWT-based authentication
+Image storage using Cloudinary
+```
