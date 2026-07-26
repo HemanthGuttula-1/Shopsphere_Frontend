@@ -93,13 +93,12 @@ git clone https://github.com/HemanthGuttula-1/Shopsphere_Backend.git
 ### 2. Navigate to the Project Directory
 
 ```bash
-cd ShopSphere
+cd ShopSphere_Frontend
 ```
 
 ### 3. Install Frontend Dependencies
 
 ```bash
-cd Shopsphere_Frontend
 npm install
 ```
 
@@ -140,6 +139,12 @@ CLOUDINARY_API_SECRET=your_api_secret
 RAZORPAY_KEY_ID=your_razorpay_key
 RAZORPAY_KEY_SECRET=your_razorpay_secret
 ```
+Create a `.env` file inside `Shopsphere_Frontend`:
+
+```env
+VITE_BASE_URL=http://localhost:5000/api
+VITE_RAZORPAY_KEY=
+```
 
 ### 7. Start the Backend Server
 
@@ -179,35 +184,6 @@ The frontend will communicate with the backend running on port `5000`.
 | GET    | /products      | Get Products |
 | POST   | /cart/add      | Add Cart     |
 | PUT    | /cart/update   | Update Cart  |
-
-# Environment Variables
- 
-## Backend
-
-PORT=
-
-MONGO_URI=
-
-JWT_SECRET=
-
-CLOUDINARY_NAME=
-
-CLOUDINARY_KEY=
-
-CLOUDINARY_SECRET=
-
-RAZORPAY_KEY=
-
-RAZORPAY_SECRET=
-
-## Frontend
-
-Create a `.env` file inside `Shopsphere_Frontend`:
-
-```env
-VITE_BASE_URL=http://localhost:5000/api
-VITE_RAZORPAY_KEY=
-```
 
 ## Simple Architecture
 ```text
