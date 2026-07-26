@@ -1,6 +1,11 @@
 # Shopsphere
 A full-stack MERN E-Commerce platform with authentication, product management, cart, wishlist, Razorpay integration, and an admin dashboard.
 
+## Project Repositories
+
+- 🌐 **Frontend:** [ShopSphere Frontend](https://github.com/your-username/shopsphere_frontend)
+- ⚙️ **Backend:** [ShopSphere Backend](https://github.com/your-username/shopsphere_backend)
+
 ## Project Structure
 ```text
 ShopSphere_Frontend/
