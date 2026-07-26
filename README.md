@@ -3,8 +3,8 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 
 ## Project Repositories
 
-- 🌐 **Frontend:** [ShopSphere Frontend](https://github.com/your-username/shopsphere_frontend)
-- ⚙️ **Backend:** [ShopSphere Backend](https://github.com/your-username/shopsphere_backend)
+- 🌐 **Frontend:** [ShopSphere Frontend](https://github.com/HemanthGuttula-1/Shopsphere_Frontend)
+- ⚙️ **Backend:** [ShopSphere Backend](https://github.com/HemanthGuttula-1/shopsphere_backend)
 
 ## Project Structure
 ```text
