@@ -12,7 +12,7 @@ function Navbar() {
 
   const cartItems = useSelector((state) => state.cart.items);
   
-  console.log("Navbar cart:", cartItems);
+  // console.log("Navbar cart:", cartItems);
 
   const user = useSelector(state => state.auth.user)
 

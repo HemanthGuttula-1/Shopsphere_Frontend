@@ -70,7 +70,7 @@ function App() {
     try{
 
       const { data } = await API.get("/auth/profile")
-      console.log("profile:", data )
+      // console.log("profile:", data )
       dispatch(setUser(data))
 
     }catch(error){
@@ -84,7 +84,7 @@ function App() {
   useEffect(() => {
 
     if (token) {
-      console.log(`Token:${token}`)
+      // console.log(`Token:${token}`)
 
       fetchCart();
 

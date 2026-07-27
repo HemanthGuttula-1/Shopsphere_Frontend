@@ -30,7 +30,7 @@ function Login() {
         form
       );
 
-      console.log("Login Data:",data)
+      // console.log("Login Data:",data)
       toast.success("Login Success")
       dispatch(loginSuccess(data));
 
