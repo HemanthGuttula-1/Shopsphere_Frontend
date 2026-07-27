@@ -7,7 +7,7 @@ A full-stack MERN E-Commerce platform with authentication, product management, c
 - ⚙️ **Backend:** [ShopSphere Backend](https://github.com/HemanthGuttula-1/shopsphere_backend)
 
 ## Live website
-click here : [shopsphere](shopsphere-frontend-9tsjmawyn-hemanth-71eb.vercel.app)
+click here : [shopsphere](https://shopsphere-frontend-19o6rpil8-hemanth-71eb.vercel.app/)
 
 ## Project Structure
 ```text
