@@ -23,7 +23,7 @@ import Checkout from "./pages/Checkout";
 import MainLayout from "./layouts/MainLayout";
 import ProductDetails from "./pages/ProductDetails";
 import Wishlist from './pages/Wishlist'
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminRoute from "./routes/AdminRoute";
 import ManageProducts from "./pages/Admin/ManageProduct";
 import AdminOrders from "./pages/Admin/AdminOrders";
